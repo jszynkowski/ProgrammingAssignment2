@@ -1,7 +1,7 @@
-## Put comments here that give an overall description of what your
-## functions do
+##This set of functions takes and finds the inverse of a sqaure invertable
+##matrix and caches it for further use
 
-## Write a short comment describing this function
+##Provide the functions to store and retreive the cached matrix.  
 
 makeCacheMatrix <- function(x = matrix()) {
     inv <- NULL
@@ -15,7 +15,9 @@ makeCacheMatrix <- function(x = matrix()) {
     list(set=set, get=get, setinverse=setinverse, getinverse=getinverse)
 }
 
-## Write a short comment describing this function
+## Check to see if there is an inverse matrix stored in the cache. If so return
+##it, if not find the inverse with solve() and store it in the cache for later 
+##use. 
 
 cacheSolve <- function(j, ...) {
     inv <- x$getinverse()
@@ -27,11 +29,4 @@ cacheSolve <- function(j, ...) {
     inv = solve(data, ...)
     x$setinverse(inv)
     inv
-}
-
-init <- function(mat){
-    x <<- makeCacheMatrix()
-    x$set(mat)
-    if (!identical(x$get, mat))
-        message("identical")
 }
